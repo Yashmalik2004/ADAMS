@@ -287,7 +287,12 @@ h6,
     left: auto;
     right: 0;
 }
-
+.g_id_signin {
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+  }
+  
 .facility-item .facility-icon i {
     position: relative;
     z-index: 2;

@@ -3,39 +3,26 @@
 
 <head>
     <meta charset="utf-8">
-    <title>ADAMS - Medicine Vault</title>
+    <title>ADAMS - Client Data</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
 
-    <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
-
-    <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap" rel="stylesheet">
-    
-    <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
     <link href="lib/animate/animate.min.css" rel="stylesheet">
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="paw.webp">
-    
 </head>
 
 <body>
     <div class="container-xxl bg-white p-0">
-        <!-- Navbar Start -->
         <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5 py-lg-0">
             <a href="index.html" class="navbar-brand">
                 <h1 class="m-0 text-primary"><i class="fa fa-paw me-3"></i>ADAMS</h1>
@@ -45,107 +32,88 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav mx-auto">
-                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="index.html" class="nav-item nav-link ">Home</a>
                     <a href="about.html" class="nav-item nav-link">About Us</a>
                     <a href="services.html" class="nav-item nav-link">Services</a>
                     
-                    <a href="admin-control.html" class="nav-item nav-link">Admin Control</a>
-                    <!-- <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                        <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
-                            <a href="facility.html" class="dropdown-item">Clinic Facilities</a>
-                            <a href="team.html" class="dropdown-item">Our Veterinarians</a>
-                            <a href="call-to-action.html" class="dropdown-item">Join Our Team</a>
-                            <a href="appointment.html" class="dropdown-item">Make Appointment</a>
-                            <a href="testimonial.html" class="dropdown-item">Testimonials</a>
-                            <a href="404.html" class="dropdown-item">404 Error</a>
-                        </div>
-                    </div> -->
+                    <a href="admin-control.html" class="nav-item nav-link active">Admin Control</a>
                     <a href="contact.html" class="nav-item nav-link">Contact Us</a>
                 </div>
                 <a href="" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Join Us<i class="fa fa-arrow-right ms-3"></i></a>
             </div>
         </nav>
-        <!-- Navbar End -->
-
-        <!-- Medicine Vault Section Start -->
-        <section id="medicine-vault" class="container-xxl py-5">
+        <section id="client-data" class="container-xxl py-5">
             <div class="container">
                 <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-                    <h1 class="mb-3">Medicine Vault</h1>
-                    <p>Manage your veterinary clinic's medicine inventory efficiently.</p>
+                    <h1 class="mb-3">Client Data</h1>
+                    <p>Manage client and pet information efficiently.</p>
                 </div>
-
-                <!-- Medicine Form -->
-                <form id="medicine-form" class="wow fadeInUp" data-wow-delay="0.3s">
+                <form id="data-form" class="wow fadeInUp" data-wow-delay="0.3s">
                     <div class="row g-3">
                         <div class="col-md-6">
-                            <label for="animal-type" class="form-label">Animal Type:</label>
-                            <input type="text" class="form-control" id="animal-type" name="animal-type" required>
+                            <label for="client-name" class="form-label">Client Name:</label>
+                            <input type="text" class="form-control" id="client-name" name="client-name" required>
                         </div>
                         <div class="col-md-6">
-                            <label for="disease" class="form-label">Disease:</label>
-                            <input type="text" class="form-control" id="disease" name="disease" required>
+                            <label for="pet-name" class="form-label">Pet Name:</label>
+                            <input type="text" class="form-control" id="pet-name" name="pet-name" required>
                         </div>
                         <div class="col-md-6">
-                            <label for="medicine-name" class="form-label">Medicine Name:</label>
-                            <input type="text" class="form-control" id="medicine-name" name="medicine-name" required>
+                            <label for="pet-type" class="form-label">Pet Type:</label>
+                            <input type="text" class="form-control" id="pet-type" name="pet-type" required>
                         </div>
                         <div class="col-md-6">
-                            <label for="dosage" class="form-label">Dosage:</label>
-                            <input type="text" class="form-control" id="dosage" name="dosage" required>
+                            <label for="medical-history" class="form-label">Medical History:</label>
+                            <textarea class="form-control" id="medical-history" name="medical-history" required></textarea>
                         </div>
                         <div class="col-md-6">
-                            <label for="frequency" class="form-label">Frequency:</label>
-                            <input type="text" class="form-control" id="frequency" name="frequency" required>
+                            <label for="height" class="form-label">Height (cm):</label>
+                            <input type="number" class="form-control" id="height" name="height" required>
                         </div>
                         <div class="col-md-6">
-                            <label for="medicine-code" class="form-label">Medicine Code:</label>
-                            <input type="text" class="form-control" id="medicine-code" name="medicine-code" required>
+                            <label for="weight" class="form-label">Weight (kg):</label>
+                            <input type="number" class="form-control" id="weight" name="weight" required>
                         </div>
                         <div class="col-md-6">
-                            <label for="quantity" class="form-label">Quantity:</label>
-                            <input type="number" class="form-control" id="quantity" name="quantity" required>
+                            <label for="last-appointment" class="form-label">Last Appointment:</label>
+                            <input type="date" class="form-control" id="last-appointment" name="last-appointment" required>
                         </div>
                         <div class="col-md-6">
-                            <label for="expiry-date" class="form-label">Expiry Date:</label>
-                            <input type="date" class="form-control" id="expiry-date" name="expiry-date" required>
+                            <label for="upcoming-appointment" class="form-label">Upcoming Appointment:</label>
+                            <input type="date" class="form-control" id="upcoming-appointment" name="upcoming-appointment" required>
                         </div>
                         <div class="col-12">
-                            <button type="submit" class="btn btn-primary rounded-pill py-3 px-5">Add Medicine</button>
+                            <button type="submit" class="btn btn-primary rounded-pill py-3 px-5">Submit</button>
                         </div>
                     </div>
                 </form>
 
-                <!-- Upload Excel Section -->
                 <div class="mt-5 wow fadeInUp" data-wow-delay="0.5s">
-                    <h3>Upload Medicine Excel Sheet</h3>
-                    <input type="file" id="medicine-excel-upload" accept=".xlsx, .xls" class="form-control">
-                    <button onclick="handleMedicineExcelUpload()" class="btn btn-secondary rounded-pill mt-3">Upload</button>
+                    <h3>Upload Excel Sheet</h3>
+                    <input type="file" id="excel-upload" accept=".xlsx, .xls" class="form-control">
+                    <button onclick="handleExcelUpload()" class="btn btn-secondary rounded-pill mt-3">Upload</button>
                 </div>
 
-                <!-- Medicine Inventory Table -->
                 <div class="mt-5 wow fadeInUp" data-wow-delay="0.7s">
-                    <h3>Medicine Inventory</h3>
-                    <table id="medicine-table" class="table table-bordered">
+                    <h3>Data Table</h3>
+                    <table id="data-table" class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>Animal Type</th>
-                                <th>Disease</th>
-                                <th>Medicine</th>
-                                <th>Dosage</th>
-                                <th>Frequency</th>
-                                <th>Quantity</th>
-                                <th>Expiry Date</th>
+                                <th>Client Name</th>
+                                <th>Pet Name</th>
+                                <th>Pet Type</th>
+                                <th>Medical History</th>
+                                <th>Height (cm)</th>
+                                <th>Weight (kg)</th>
+                                <th>Last Appointment</th>
+                                <th>Upcoming Appointment</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Rows will be dynamically added here -->
                         </tbody>
                     </table>
                 </div>
 
-                <!-- Go Back Button -->
                 <div class="mt-5 wow fadeInUp" data-wow-delay="0.9s">
                     <a href="index.html" onclick="shut()">
                         <button class="btn btn-primary rounded-pill py-3 px-5">
@@ -155,9 +123,6 @@
                 </div>
             </div>
         </section>
-        <!-- Medicine Vault Section End -->
-
-        <!-- Footer Start -->
         <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
             <div class="container py-5">
                 <div class="row g-5">
@@ -175,9 +140,9 @@
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h3 class="text-white mb-4">Quick Links</h3>
-                        <a class="btn btn-link text-white-50" href="about.html">About Us</a>
-                        <a class="btn btn-link text-white-50" href="contact.html">Contact Us</a>
-                        <a class="btn btn-link text-white-50" href="services.html">Our Services</a>
+                        <a class="btn btn-link text-white-50" href="">About Us</a>
+                        <a class="btn btn-link text-white-50" href="">Contact Us</a>
+                        <a class="btn btn-link text-white-50" href="">Our Services</a>
                         <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
                         <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
                     </div>
@@ -185,7 +150,7 @@
                         <h3 class="text-white mb-4">Photo Gallery</h3>
                         <div class="row g-2 pt-2">
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="img/carousel-1.jpg" alt="">
+                                <img class="img-fluid rounded bg-light p-1" src="img/classes-1.jpg" alt="">
                             </div>
                             <div class="col-4">
                                 <img class="img-fluid rounded bg-light p-1" src="img/classes-2.jpg" alt="">
@@ -219,8 +184,7 @@
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                             &copy; <a class="border-bottom" href="#">ADAMS</a>, All Right Reserved. 
-                            
-                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+    
                             Designed By <a class="border-bottom" href="https://htmlcodex.com">Slay</a>
                         </div>
                         <div class="col-md-6 text-center text-md-end">
@@ -235,54 +199,53 @@
                 </div>
             </div>
         </div>
-        <!-- Footer End -->
-
-        <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
-
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/wow/wow.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
-
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            document.getElementById("medicine-form").addEventListener("submit", async function (event) {
-                event.preventDefault();
-                const formData = {
-                    animalType: document.getElementById("animal-type").value,
-                    disease: document.getElementById("disease").value,
-                    medicineName: document.getElementById("medicine-name").value,
-                    dosage: document.getElementById("dosage").value,
-                    frequency: document.getElementById("frequency").value,
-                    medicineCode: document.getElementById("medicine-code").value,
-                    quantity: document.getElementById("quantity").value,
-                    expiryDate: document.getElementById("expiry-date").value,
-                };
-                
-                const response = await fetch("http://localhost:3000/add-medicine", {
+         document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("data-form").addEventListener("submit", async function (event) {
+            event.preventDefault();
+            const formData = {
+                clientName: document.getElementById("client-name").value,
+                petName: document.getElementById("pet-name").value,
+                petType: document.getElementById("pet-type").value,
+                medicalHistory: document.getElementById("medical-history").value,
+                height: document.getElementById("height").value,
+                weight: document.getElementById("weight").value,
+                lastAppointment: document.getElementById("last-appointment").value,
+                upcomingAppointment: document.getElementById("upcoming-appointment").value,
+            };
+
+            try {
+                const response = await fetch("http://localhost:3000/add-client", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(formData)
                 });
                 const data = await response.json();
                 alert(data.message);
-            });
+            } catch (error) {
+                console.error("Error submitting form:", error);
+                alert("Failed to submit data. Please try again.");
+            }
         });
+    });
 
         function shut() {
             window.open('index.html', '_self');
             window.close();
         }
 
-        function addMedicineToTable() {
-            const formData = new FormData(document.getElementById("medicine-form"));
-            const tableBody = document.querySelector("#medicine-table tbody");
+        function addDataToTable() {
+            const formData = new FormData(document.getElementById("data-form"));
+            const tableBody = document.querySelector("#data-table tbody");
             const newRow = document.createElement("tr");
 
             formData.forEach((value) => {
@@ -292,61 +255,49 @@
             });
 
             tableBody.appendChild(newRow);
-            checkExpiryDate(formData.get("expiry-date"));
-            document.getElementById("medicine-form").reset();
+            document.getElementById("data-form").reset();
         }
 
-        function handleMedicineExcelUpload() {
-            const file = document.getElementById("medicine-excel-upload").files[0];
-            if (!file) {
-                alert("Please select an Excel file first.");
+        function handleExcelUpload() {
+        const fileInput = document.getElementById("excel-upload");
+        const file = fileInput.files[0];
+
+        if (!file) {
+            alert("Please select a file first.");
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = function (event) {
+            const data = new Uint8Array(event.target.result);
+            const workbook = XLSX.read(data, { type: "array" });
+            const sheetName = workbook.SheetNames[0]; // Read first sheet
+            const worksheet = workbook.Sheets[sheetName];
+            const jsonData = XLSX.utils.sheet_to_json(worksheet);
+
+            if (jsonData.length === 0) {
+                alert("The selected file is empty.");
                 return;
             }
 
-            const reader = new FileReader();
-            reader.onload = async function (e) {
-                const data = new Uint8Array(e.target.result);
-                const workbook = XLSX.read(data, { type: "array" });
-                const sheetName = workbook.SheetNames[0];
-                const worksheet = workbook.Sheets[sheetName];
-                const jsonData = XLSX.utils.sheet_to_json(worksheet);
+            // Send data to backend
+            fetch("http://localhost:3000/upload-excel", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ clients: jsonData }),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    alert(data.message);
+                })
+                .catch((error) => {
+                    console.error("Error uploading data:", error);
+                    alert("Failed to upload data.");
+                });
+        };
 
-                if (jsonData.length === 0) {
-                    alert("The uploaded Excel file is empty.");
-                    return;
-                }
-
-                try {
-                    const response = await fetch("http://localhost:3000/upload-medicine-excel", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify(jsonData),
-                    });
-
-                    const result = await response.json();
-                    alert(result.message);
-                } catch (error) {
-                    console.error("Error uploading Excel data:", error);
-                    alert("Error uploading Excel data. Please check the server.");
-                }
-            };
-
-            reader.readAsArrayBuffer(file);
-        }
-
-        function checkExpiryDate(expiryDate) {
-            const today = new Date();
-            const expiry = new Date(expiryDate);
-
-            if (expiry < today) {
-                sendEmailNotification();
-            }
-        }
-
-        function sendEmailNotification() {
-            console.log("Sending email notification about expired medicine...");
-            alert("🚀 Sci-Fi Alert: Expired medicine detected! Notification sent.");
-        }
+        reader.readAsArrayBuffer(file);
+    }
     </script>
 </body>
 

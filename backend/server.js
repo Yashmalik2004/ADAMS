@@ -1,5 +1,3 @@
-
-
 const express = require("express");
 const cors = require("cors");
 const mysql = require("mysql2");
@@ -8,6 +6,7 @@ const cron = require("node-cron");
 const nodemailer = require("nodemailer");
 const axios = require("axios");
 const twilio = require("twilio");
+const path = require("path");
 require("dotenv").config();
 
 const app = express();
@@ -15,6 +14,17 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(cors());
+
+// Serve root-level assets (css, js, lib, img) - must come BEFORE frontend static files
+app.use(express.static(path.join(__dirname, '..')));
+
+// Serve frontend static files from the repo `frontend` directory
+app.use(express.static(path.join(__dirname, '..', 'frontend')));
+
+// Serve index.html at root
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'frontend', 'index.html'));
+});
 
 const db = mysql.createConnection({
   host: process.env.DB_HOST,
@@ -28,7 +38,7 @@ db.connect((err) => {
     console.error("Error connecting with db:", err);
     return;
   }
-  console.log("🟢Connected db :)");
+  console.log("Connected db :)");
 
   db.query(`
     CREATE TABLE IF NOT EXISTS users (
@@ -38,7 +48,7 @@ db.connect((err) => {
     )
   `, (err, results) => {
     if (err) console.error('Error creating table:', err);
-    else console.log('✅ Users table created or already exists');
+    else console.log(' Users table created or already exists');
   });
 });
 
@@ -262,8 +272,6 @@ app.get("/check-alerts", (req, res) => {
     if (medicalIssues.length === 0) {
       return res.json({ upcomingAppointments: [], medicineAlerts: [] });
     }
-    // console.log("Medical Issues:", medicalIssues);
-
     const placeholders = medicalIssues.map(() => "?").join(",");
     const medicineQuery = `
     SELECT * FROM medicines 
@@ -325,7 +333,7 @@ app.post("/send-mail", (req, res) => {
 
 // Submit Appointment
 app.post("/submit-appointment", (req, res) => {
-  console.log(req.body); // Log the incoming data for debugging
+  console.log(req.body);
 
   const {
     clientName,
@@ -351,7 +359,6 @@ app.post("/submit-appointment", (req, res) => {
     console.log("Missing required fields");
     return res.status(400).json({ message: "All fields are required" });
   }
-
   const sql = `
         INSERT INTO clients 
         (client_name, pet_name, pet_type, medical_history, height, weight, last_appointment, upcoming_appointment)
@@ -379,7 +386,6 @@ app.post("/submit-appointment", (req, res) => {
   });
 });
 
-// GET ALL Clients
 app.get("/get-clients", (req, res) => {
   const sql = `SELECT * FROM clients`;
 
@@ -392,7 +398,6 @@ app.get("/get-clients", (req, res) => {
   });
 });
 
-// GET ALL Medicines
 app.get("/get-medicines", (req, res) => {
   const sql = `SELECT * FROM medicines`;
 
@@ -405,7 +410,6 @@ app.get("/get-medicines", (req, res) => {
   });
 });
 
-// DELETE Client by ID
 app.delete("/delete-client/:id", (req, res) => {
   const { id } = req.params;
   const sql = `DELETE FROM clients WHERE id = ?`;
@@ -419,7 +423,6 @@ app.delete("/delete-client/:id", (req, res) => {
   });
 });
 
-// DELETE Medicine by ID
 app.delete("/delete-medicine/:id", (req, res) => {
   const { id } = req.params;
   const sql = `DELETE FROM medicines WHERE id = ?`;
@@ -432,7 +435,8 @@ app.delete("/delete-medicine/:id", (req, res) => {
     res.json({ message: "Medicine deleted successfully!" });
   });
 });
-// ----------------- CRON JOB -----------------
+
+//------------------------------------------------------------------------------------------
 
 cron.schedule("* * * * *", () => {
   console.log(":) Running daily alert check");
@@ -458,7 +462,6 @@ cron.schedule("* * * * *", () => {
         });
         messageBody += "\n";
       }
-
       if (medicineAlerts.length > 0) {
         messageBody += " *Low Stock Medicines:*\n";
         medicineAlerts.forEach((m) => {
@@ -477,17 +480,13 @@ cron.schedule("* * * * *", () => {
           to: process.env.TWILIO_WHATSAPP_TO,
           body: messageBody,
         })
-        .then((message) => console.log("WhatsApp alert sent 🟢:", message.sid))
-        .catch((err) => console.error("Error sending WhatsApp 🔴:", err));
+        .then((message) => console.log("WhatsApp alert sent:", message.sid))
+        .catch((err) => console.error("Error sending WhatsApp:", err));
     })
     .catch((err) => {
       console.error("Error during scheduled alert check:", err.message);
     });
 });
-app.get('/', (req, res) => {
-  res.send('Server is working. Welcome to ADAMS!');
-});
-
 app.listen(PORT, () => {
-  console.log(`Server running 🟢 on http://localhost:${PORT}`);
+  console.log(`Server running on http://localhost:${PORT}`);
 });

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADAMS - Login</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+        button {
+            padding: 10px 20px;
+            background: #4285F4;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        button:hover {
+            background: #357ae8;
+        }
+    </style>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+
+    <div class="container py-5 text-center">
+        <h2>Welcome to ADAMS</h2>
+        <button class="btn btn-primary" onclick="loginWithGoogle()">Login with Google</button>
+    </div>
+
+    <script>
+        function loginWithGoogle() {
+            const clientId = '1092239645000-b77os56g6tmc31h6btcnqbti4h86g0ea.apps.googleusercontent.com';
+            const redirectUri = 'https://adams-yashmalik2004s-projects.vercel.app/';
+            const scope = 'email profile';
+            const responseType = 'token';
+            const url = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=${responseType}&scope=${scope}`;
+            window.location.href = url;
+        }
+    </script>
+
+</body>
+</html>
