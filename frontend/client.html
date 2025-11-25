@@ -270,7 +270,7 @@
             };
 
             try {
-                const response = await fetch("http://localhost:3000/add-client", {
+                const response = await fetch(`${API_BASE_URL}/add-client`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(formData)
@@ -327,7 +327,7 @@
             }
 
             // Send data to backend
-            fetch("http://localhost:3000/upload-excel", {
+            fetch(`${API_BASE_URL}/upload-excel`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ clients: jsonData }),

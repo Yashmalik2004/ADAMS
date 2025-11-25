@@ -1,3 +1,6 @@
+// API Configuration - Works for both local development and production
+const API_BASE_URL = window.location.origin;
+
 (function ($) {
     "use strict";
 

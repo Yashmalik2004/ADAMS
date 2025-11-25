@@ -442,7 +442,7 @@
             data[key] = value;
           });
 
-          fetch('http://localhost:3000/submit-appointment', {
+          fetch(`${API_BASE_URL}/submit-appointment`, {
     method: 'POST',
     headers: {
         'Content-Type': 'application/json',

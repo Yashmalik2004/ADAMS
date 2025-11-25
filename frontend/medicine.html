@@ -225,7 +225,7 @@
                     expiryDate: document.getElementById("expiry-date").value,
                 };
             
-                const response = await fetch("http://localhost:3000/add-medicine", {
+                const response = await fetch(`${API_BASE_URL}/add-medicine`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(formData)
@@ -275,10 +275,10 @@
                     return;
                 }
                 try {
-                    const response = await fetch("http://localhost:3000/upload-medicine-excel", {
+                    const response = await fetch(`${API_BASE_URL}/upload-medicine-excel`, {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify(jsonData),
+                        body: JSON.stringify({ medicines: jsonData }),
                     });
 
                     const result = await response.json();
